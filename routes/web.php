@@ -22,6 +22,7 @@ use App\Livewire\Teacher\ListAllowance;
 use App\Livewire\Teacher\ListFee;
 use App\Livewire\Teacher\ListYourClass;
 use App\Livewire\Teacher\Memo;
+use App\Http\Controllers\PaymentController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -64,6 +65,13 @@ Route::middleware(['auth', 'verified', 'role:client'])->prefix('client')->group(
     Route::get('/client-class', ListClientClass::class)->name('client.client-class');
     Route::get('/monthly-fee', ListMonthlyFee::class)->name('client.monthly-fee');
     Route::get('/transaction', ListTransaction::class)->name('client.transaction');
+});
+
+// Payment routes
+Route::prefix('payment')->group(function () {
+    Route::post('/create', [PaymentController::class, 'createPayment'])->name('payment.create');
+    Route::get('/callback', [PaymentController::class, 'callback'])->name('payment.callback');
+    Route::post('/webhook', [PaymentController::class, 'webhook'])->name('payment.webhook');
 });
 
 require __DIR__.'/settings.php';
