@@ -6,15 +6,53 @@
 
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+    /* Maroon Theme Colors */
+    --color-maroon-50: #fdf2f4;
+    --color-maroon-100: #fce7eb;
+    --color-maroon-200: #f9d0d9;
+    --color-maroon-300: #f4a9ba;
+    --color-maroon-400: #ec7896;
+    --color-maroon-500: #df4d74;
+    --color-maroon-600: #cb2d5d;
+    --color-maroon-700: #ab204a;
+    --color-maroon-800: #8e1d42;
+    --color-maroon-900: #771c3c;
+    --color-maroon-950: #800000;
 }
 
 @layer base {
-
     *,
     ::after,
     ::before,
     ::backdrop,
     ::file-selector-button {
         border-color: var(--color-gray-200, currentColor);
+    }
+}
+
+/* DaisyUI Theme Configuration */
+@layer base {
+    [data-theme="maroon"] {
+        --p: 0 100% 25%;
+        --pf: 0 100% 20%;
+        --pc: 0 0% 100%;
+        --s: 0 70% 35%;
+        --sf: 0 70% 30%;
+        --sc: 0 0% 100%;
+        --a: 35 90% 50%;
+        --af: 35 90% 45%;
+        --ac: 0 0% 100%;
+        --n: 0 20% 20%;
+        --nf: 0 20% 15%;
+        --nc: 0 0% 100%;
+        --b1: 0 0% 100%;
+        --b2: 0 10% 97%;
+        --b3: 0 10% 94%;
+        --bc: 0 20% 20%;
+        --in: 198 93% 60%;
+        --su: 158 64% 52%;
+        --wa: 43 96% 56%;
+        --er: 0 91% 71%;
     }
 }

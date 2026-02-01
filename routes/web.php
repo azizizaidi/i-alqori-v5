@@ -33,8 +33,8 @@ Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
-// Admin routes (role: admin)
-Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->group(function () {
+// Admin routes (role: Admin)
+Route::middleware(['auth', 'verified', 'role:Admin'])->prefix('admin')->group(function () {
     Route::get('/', AdminDashboard::class)->name('admin.dashboard');
     Route::get('/users', Users::class)->name('admin.users');
     Route::get('/class-names', ClassNames::class)->name('admin.class-names');
@@ -51,16 +51,16 @@ Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->group(fu
     Route::get('/student-info', StudentInfo::class)->name('admin.student-info');
 });
 
-// Teacher routes (role: teacher)
-Route::middleware(['auth', 'verified', 'role:teacher'])->prefix('teacher')->group(function () {
+// Teacher routes (role: Teacher)
+Route::middleware(['auth', 'verified', 'role:Teacher'])->prefix('teacher')->group(function () {
     Route::get('/your-class', ListYourClass::class)->name('teacher.your-class');
     Route::get('/fee-student', ListFee::class)->name('teacher.fee-student');
     Route::get('/allowance', ListAllowance::class)->name('teacher.allowance');
     Route::get('/info', Memo::class)->name('teacher.info');
 });
 
-// Client routes (role: client)
-Route::middleware(['auth', 'verified', 'role:client'])->prefix('client')->group(function () {
+// Client routes (role: Registrar)
+Route::middleware(['auth', 'verified', 'role:Registrar'])->prefix('client')->group(function () {
     Route::get('/my-clients', ListMyClients::class)->name('client.my-clients');
     Route::get('/client-class', ListClientClass::class)->name('client.client-class');
     Route::get('/monthly-fee', ListMonthlyFee::class)->name('client.monthly-fee');
