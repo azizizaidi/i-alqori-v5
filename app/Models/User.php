@@ -156,9 +156,17 @@ class User extends Authenticatable
     }
 
     /**
-     * Get primary role name.
+     * Get primary role name (attribute accessor).
      */
     public function getPrimaryRoleAttribute(): string
+    {
+        return $this->getRoleNames()->first() ?? 'user';
+    }
+
+    /**
+     * Get primary role name (method).
+     */
+    public function getPrimaryRole(): string
     {
         return $this->getRoleNames()->first() ?? 'user';
     }
